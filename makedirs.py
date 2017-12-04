@@ -4,13 +4,13 @@ from bs4 import BeautifulSoup
 
 if __name__ == '__main__':
 	try:
-		if sys.argv[1] == "clean":
+		if len(sys.argv[1:]) == 1 and sys.argv[1] == "clean":
 			for root, dirs, files in os.walk('./exercises/'):
 				if len(files) == 1:
 					for name in files:
 						os.remove(os.path.join(root, name))
 						os.rmdir(root)
-		elif sys.argv[1] and sys.argv[2]:
+		elif len(sys.argv[1:]) > 1:
 			url = "https://projecteuler.net/problem="
 			for i in range(int(sys.argv[1]),int(sys.argv[2])+1):
 				with urllib.request.urlopen(url+str(i)) as response:
