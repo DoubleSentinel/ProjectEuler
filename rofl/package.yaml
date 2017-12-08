@@ -9,8 +9,9 @@ dependencies:
 - containers
 
 library:
-  source-dirs: src
-  source-dirs: ../exercises
+  source-dirs: 
+    - src
+    - ../exercises
 
 executables:
   rofl:
