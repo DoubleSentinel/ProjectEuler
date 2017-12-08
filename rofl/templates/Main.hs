@@ -1,6 +1,6 @@
 module Main where
 
-import E2.Q
+import E{}.Q
 
 main :: IO ()
 main = print solve
