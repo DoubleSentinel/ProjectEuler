@@ -6,6 +6,7 @@ import os
 def run(ex, verbose=False):
     print('\nCompiling {}'.format(ex))
     output = os.system('stack build')
+    
     if verbose:
         print(output)
 
@@ -21,8 +22,13 @@ def main():
     except:
         print('Please give an exercise number')
         sys.exit(-1)
-        
-    exercisefile = '../exercises/E{}/Q.hs'.format(ex)
+    
+    folder = '../exercises/E{}'.format(ex)
+    
+    if not os.path.exists(folder):
+        os.makedirs(folder)
+    
+    exercisefile = '{}/Q.hs'.format(folder, ex)
     mainfile = 'app/Main.hs'
     maintemplatefile = 'templates/Main.hs'
     exercisetemplatefile = 'templates/E.hs'
@@ -46,7 +52,7 @@ def main():
         file.writelines(exercisetemplate)
     
     os.system('start notepad++ {}'.format(exercisefile))
-    os.system('start chrome {}'.format('https://projecteuler.net/problem={}'.format(ex)))
+    # os.system('start chrome {}'.format('https://projecteuler.net/problem={}'.format(ex)))
     
     sys.exit(0)
 
