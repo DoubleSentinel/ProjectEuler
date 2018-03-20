@@ -1,6 +1,8 @@
 module Main where
 
 import E{}.Q
+import System.TimeIt
 
 main :: IO ()
-main = print solve
+main = do
+    timeIt $ print solve

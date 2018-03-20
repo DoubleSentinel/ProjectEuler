@@ -11,9 +11,7 @@ def run(ex, verbose=False):
         print(output)
 
     print('\nStarting {}'.format(ex))
-    start = time()
     os.system('stack exec rofl.exe')
-    print('Time for {}: {}\n'.format(ex, time() - start))
 
 
 def main():
